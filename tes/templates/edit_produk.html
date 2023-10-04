@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{%block content%}
+    <h1><center>Edit Produk</h1>
+    <h7>{{raw_produk.nama_produk}}</h7>
+    {% if pesan %}
+        <div class="alert alert-success">{{ pesan }}</div>
+    {% endif %}
+    <form action="{% url 'edit' id %}" method="post">
+        {% csrf_token %}
+        {% for produk in raw_produk %}
+            <div class="form-group">
+                <label for="idProduk">ID Produk</label>
+                <input type="number" class="form-control" name="idProduk" value="{{produk.id_product}}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="namaProduk">Nama Produk</label>
+                <input type="text" class="form-control" name="nama_produk" value="{{produk.nama_produk}}" placeholder="Nama Produk" autocomplete="off" required>
+            </div>
+            <div class="form-group">
+                <label for="harga">Harga Produk</label>
+                <input type="number" class="form-control" name="harga" value="{{produk.harga}}" placeholder="Rp ">
+            </div>
+            <div class="form-group">
+                <label for="kategori">Kategori</label>
+                <select class="form-control" name="kategori">
+                    {%for kat in kategori%}
+                        {%if kat.nama_kategori == produk.kategori %}
+                            <option selected value="{{kat.id_kategori}}">{{kat.nama_kategori}}</option>
+                        {% else %}
+                            <option value="{{kat.id_kategori}}">{{kat.nama_kategori}}</option>
+                        {%endif%}
+                    {%endfor%}
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="status">Status</label>
+                <select class="form-control" name="status">
+                    {%for sts in status%}
+                        {%if sts.nama_status == produk.status %}
+                            <option selected value="{{sts.id_status}}">{{sts.nama_status}}</option>
+                        {% else %}
+                            <option value="{{sts.id_status}}">{{sts.nama_status}}</option>
+                        {%endif%}
+                    {%endfor%}
+                </select>
+            </div>
+        {% endfor%}
+        <a class="btn btn-secondary" href="/dashboard">Kembali</a>
+        <button type="submit" class="btn btn-primary">Edit</button>
+    </form>
+
+{% endblock %}  

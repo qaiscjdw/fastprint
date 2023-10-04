@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{%block content%}
+    <h1><center>Tambah Produk</h1>
+    {% if pesan %}
+        <div class="alert alert-success">{{ pesan }}</div>
+    {% endif %}
+    <form action="/tambah/" method="post">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="namaProduk">Nama Produk</label>
+            <input type="text" class="form-control" name="nama_produk" placeholder="Nama Produk" autocomplete="off" required>
+        </div>
+        <div class="form-group">
+            <label for="harga">Harga Produk</label>
+            <input type="number" class="form-control" name="harga" id="harga" placeholder="Rp ">
+        </div>
+        <div class="form-group">
+            <label for="kategori">Kategori</label>
+            <select class="form-control" name="kategori">
+                {%for kat in kategori%}
+                    <option value="{{kat.id_kategori}}">{{kat.nama_kategori}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="status">Status</label>
+            <select class="form-control" name="status">
+                {%for sts in status%}
+                    <option value="{{sts.id_status}}">{{sts.nama_status}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <a class="btn btn-secondary" href="/dashboard">Kembali</a>
+        <button type="submit" class="btn btn-primary">Tambah</button>
+    </form>
+
+{% endblock %}  

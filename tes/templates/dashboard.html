@@ -1,0 +1,36 @@
+
+{% extends "base.html" %}
+{%block content%}
+    {% for pesan in messages %}
+      {% if pesan %}
+        <div class="alert alert-success">{{ pesan }} </div>
+      {% endif %}
+    {% endfor %}
+    <h1><center> List Produk</h1>
+    <a class="btn btn-success btn-lg" style="float:right" href="{% url "tambah" %}"> Tambah Produk</a>
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Nama Produk</th>
+            <th scope="col">Harga</th>
+            <th scope="col">Kategori</th>
+            <th scope="col">Status</th>
+            <th scope="col" style="text-align: center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%for produk in raw_produk%}
+            <tr>
+              <th>{{produk.id_produk}}</th>
+              <td>{{produk.nama_produk}}</td>
+              <td>{{produk.harga}}</td>
+              <td>{{produk.kategori}}</td>
+              <td>{{produk.status}}</td>
+              <td><a href="{% url "edit" produk.id_product %}" class="btn btn-primary btn-sm">edit<a><a href="{% url "hapus" produk.id_product %}" class="btn btn-danger btn-sm" onclick="return confirm('Apakah ingin menghapus produk ini?')">hapus<a></td>
+            </tr>
+          {%endfor%}
+        </tbody>
+      </table>
+{% endblock %}      
+
