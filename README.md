@@ -1,7 +1,34 @@
 # **Documentation**
 ##### dokumentasi untuk program tes backend programmer di Fastprint
---- 
-# Folder fastprint
+
+* Clone repository
+```bash
+   git clone https://github.com/qaiscjdw/fastprint.git
+   cd fastprint
+```
+* Install library yang akan digunakan
+```bash
+  pip install -r requirements.txt 
+```
+
+* Make migrations dan migrate
+```bash
+  python manage.py makemigrations && manage.py migrate
+```
+
+* Jalankan setup.py
+###### Untuk menyimpan data dari api ke database ######
+```bash
+  python setup.py
+```
+
+* Jalankan server
+```bash
+  python manage.py runserver
+```
+---
+# **Penjelasan Code**
+### Folder fastprint
 * Berisi file-file yang digenerate saat membuat project django
 * Untuk mengatur database yang defaultnya menggunakan sqlite menjadi mysql perlu diganti bagian setting.py
 
@@ -65,7 +92,7 @@ urlpatterns = [
 ]
 ```
 
-# Folder tes
+### Folder tes
 * Merupakan folder apps yang telah dibuat
 * Menambahkan table database yang akan dibuat didalam models.py
 ```python
@@ -97,4 +124,9 @@ class Status(models.Model):
         managed = True
         db_table = 'status'
 ```
-
+* views.py digunakan untuk mengatur segala action yang ada di web sekaligus tempat raw query sql
+  
+### Folder root
+* manage.py merupakan sebuah file yang digunakan untuk mengatur projek
+* setup.py digunakan untuk mengambil data dari api yang diberikan kedalam database
+* requirement.txt adalah tempat seluruh library yang digunakan dalam projek untuk diinstall
