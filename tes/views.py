@@ -7,7 +7,15 @@ from tes.models import Produk, Kategori, Status
 # Create your views here.
 cursor = connections['default'].cursor()
 def dashboard(request):
-    product = Produk.objects.raw("SELECT id_product, produk.id_product AS 'id_produk',produk.nama_produk AS 'nama_produk',produk.harga as 'harga' , kategori.nama_kategori as 'kategori', status.nama_status as 'status' FROM produk JOIN kategori ON kategori.id_kategori = kategori_id JOIN status ON status.id_status = status_id")
+    if request.GET.get('filter'):
+        filter_status = request.GET.get('filter')
+        print( filter_status)
+        if filter_status == "Yes":
+            product = Produk.objects.raw("SELECT id_product, produk.id_product AS 'id_produk',produk.nama_produk AS 'nama_produk',produk.harga as 'harga' , kategori.nama_kategori as 'kategori', status.nama_status as 'status' FROM produk JOIN kategori ON kategori.id_kategori = kategori_id JOIN status ON status.id_status = status_id WHERE status.nama_status = 'bisa dijual'")
+        else:
+            product = Produk.objects.raw("SELECT id_product, produk.id_product AS 'id_produk',produk.nama_produk AS 'nama_produk',produk.harga as 'harga' , kategori.nama_kategori as 'kategori', status.nama_status as 'status' FROM produk JOIN kategori ON kategori.id_kategori = kategori_id JOIN status ON status.id_status = status_id")        
+    else:
+        product = Produk.objects.raw("SELECT id_product, produk.id_product AS 'id_produk',produk.nama_produk AS 'nama_produk',produk.harga as 'harga' , kategori.nama_kategori as 'kategori', status.nama_status as 'status' FROM produk JOIN kategori ON kategori.id_kategori = kategori_id JOIN status ON status.id_status = status_id")
     return render(request,"dashboard.html",{'raw_produk': product})
 
 def tambahProduct(request):

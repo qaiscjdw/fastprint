@@ -7,7 +7,23 @@
       {% endif %}
     {% endfor %}
     <h1><center> List Produk</h1>
-    <a class="btn btn-success btn-lg" style="float:right" href="{% url "tambah" %}"> Tambah Produk</a>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm">
+            <form action="{% url 'dashboard' %}" method="get">
+              <label for="filter">Filter</label>
+              <select name="filter">
+                <option value="No" />No</option>
+                <option value="Yes" />Yes</option>
+              <input type="submit" value="submit" />
+          </form>    
+          </div>
+          <div class="col-sm">
+            <a class="btn btn-success btn-lg" style="float:right" href="{% url "tambah" %}"> Tambah Produk</a>
+          </div>
+        </div>
+      </div>
+    
     <table class="table">
         <thead class="thead-dark">
           <tr>
