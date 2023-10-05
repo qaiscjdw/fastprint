@@ -28,9 +28,9 @@
 ```
 ---
 # **Penjelasan Code**
-### Folder fastprint
+### [Folder fastprint](https://github.com/qaiscjdw/fastprint/tree/main/fastprint)
 * Berisi file-file yang digenerate saat membuat project django
-* Untuk mengatur database yang defaultnya menggunakan sqlite menjadi mysql perlu diganti bagian setting.py
+* Untuk mengatur database yang defaultnya menggunakan sqlite menjadi mysql perlu diganti bagian [setting.py](https://github.com/qaiscjdw/fastprint/blob/main/fastprint/settings.py)
 
 ```python
 DATABASES = {
@@ -46,7 +46,7 @@ DATABASES = {
     },
 }
 ```
-* Menambahkan apps yang dibuat kedalam setting.py
+* Menambahkan apps yang dibuat kedalam [setting.py](https://github.com/qaiscjdw/fastprint/blob/main/fastprint/settings.py)
 ```python
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'tes',
 ]
 ```
-* Menambahkan directory template yang akan digunakan didalam setting.py
+* Menambahkan directory template yang akan digunakan didalam [setting.py](https://github.com/qaiscjdw/fastprint/blob/main/fastprint/settings.py)
 ```python
 TEMPLATES = [
     {
@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 ```
-* Pada file urls.py path sebagai berikut
+* Pada file [urls.py](https://github.com/qaiscjdw/fastprint/blob/main/fastprint/urls.py) path sebagai berikut
 ```python
 from django.contrib import admin
 from django.urls import path
@@ -92,9 +92,9 @@ urlpatterns = [
 ]
 ```
 
-### Folder tes
+### [Folder tes](https://github.com/qaiscjdw/fastprint/tree/main/tes)
 * Merupakan folder apps yang telah dibuat
-* Menambahkan table database yang akan dibuat didalam models.py
+* Menambahkan table database yang akan dibuat didalam [models.py](https://github.com/qaiscjdw/fastprint/blob/main/tes/models.py)
 ```python
 class Kategori(models.Model):
     id_kategori = models.AutoField(primary_key=True)
@@ -124,9 +124,9 @@ class Status(models.Model):
         managed = True
         db_table = 'status'
 ```
-* views.py digunakan untuk mengatur segala action yang ada di web sekaligus tempat raw query sql
+* [views.py](https://github.com/qaiscjdw/fastprint/blob/main/tes/views.py) digunakan untuk mengatur segala action yang ada di web sekaligus tempat raw query sql
   
-### Folder root
-* manage.py merupakan sebuah file yang digunakan untuk mengatur projek
-* setup.py digunakan untuk mengambil data dari api yang diberikan kedalam database
-* requirement.txt adalah tempat seluruh library yang digunakan dalam projek untuk diinstall
+### [Folder root](https://github.com/qaiscjdw/fastprint/tree/main)
+* [manage.py](https://github.com/qaiscjdw/fastprint/blob/main/manage.py) merupakan sebuah file yang digunakan untuk mengatur projek
+* [setting.py](https://github.com/qaiscjdw/fastprint/blob/main/setup.py) digunakan untuk mengambil data dari api yang diberikan kedalam database
+* [requirement.txt](https://github.com/qaiscjdw/fastprint/blob/main/requirement.txt) adalah tempat seluruh library yang digunakan dalam projek untuk diinstall
