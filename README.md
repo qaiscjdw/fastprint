@@ -128,5 +128,5 @@ class Status(models.Model):
   
 ### [Folder root](https://github.com/qaiscjdw/fastprint/tree/main)
 * [manage.py](https://github.com/qaiscjdw/fastprint/blob/main/manage.py) merupakan sebuah file yang digunakan untuk mengatur projek
-* [setting.py](https://github.com/qaiscjdw/fastprint/blob/main/setup.py) digunakan untuk mengambil data dari api yang diberikan kedalam database
+* [setup.py](https://github.com/qaiscjdw/fastprint/blob/main/setup.py) digunakan untuk mengambil data dari api yang diberikan kedalam database
 * [requirement.txt](https://github.com/qaiscjdw/fastprint/blob/main/requirement.txt) adalah tempat seluruh library yang digunakan dalam projek untuk diinstall
